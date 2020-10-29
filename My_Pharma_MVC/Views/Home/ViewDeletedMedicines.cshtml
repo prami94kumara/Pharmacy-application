@@ -1,0 +1,45 @@
+﻿@model IEnumerable<My_Pharma_DB.Domain.Medicine>
+
+@{
+    ViewBag.Title = "ViewDeletedMedicines";
+}
+
+<h2>ViewDeletedMedicines</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Medicine Name")
+        </th>
+        <th>
+            @Html.DisplayName("Medicine Description")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+        <th>
+            @Html.DisplayName("Expiry Date")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediExpiryDate)
+        </td>
+    </tr>
+}
+
+</table>

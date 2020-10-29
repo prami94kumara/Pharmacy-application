@@ -1,0 +1,96 @@
+﻿/**{
+    margin:0;
+    padding:0;
+}*/
+body
+{
+    background-color:aquamarine;
+}
+
+.heading-contaier {
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.img-container {
+    margin-top: 50px;
+    opacity: 0.9;
+    display: inline-block;
+    transition: 3s;
+    animation: ease-in;
+}
+
+.header-info {
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    
+}
+
+.head-1-style {
+    font-size: 70px;
+    color: indigo;
+}
+
+.category-head {
+    padding: 20px;
+    text-align: center;
+    color: midnightblue;
+    font-size: 45px;
+}
+
+.img-med-category{
+    width:100%;
+    padding:20px;
+}
+
+h4 {
+    color: navy;
+    font-weight: 500;
+    text-align: center;
+    font-size:35px;
+    padding:20px 2px;
+    font-style:oblique;
+}
+
+.btn-more {
+    background-color: orangered;
+    color: ghostwhite;
+    padding: 8px 10px;
+    margin-left:35%;
+    border-radius:5px;
+    font-size:20px;
+}
+
+.img-med-category:hover{
+   transform:scale(1.3);
+
+}
+
+.btn-more:hover {
+    background-color: lightsalmon;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+}
+
+.dropdown-list-med-cat{
+    background-color:hotpink;
+    height:50px;
+}
+
+
+@media screen and (max-width:900px) {
+    .head-1-style {
+        font-size: 40px;
+        color: indigo;
+    }
+}

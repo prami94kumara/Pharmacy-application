@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<
+<div class="container-fluid">
+    <div class="heading-contaier">
+        <div class="img-container">
+            <img src="~/Content/Images/Pharmacy_main_pic.jpg" alt="Pharma Head image" />
+        </div>
+
+        <div class="header-info">
+            <h1 class="head-1-style"> Health is Wealth!</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="category-head">Medicine Category</h2>
+    <div class="col-md-4">
+        <img src="~/Content/Images/medicine tablets.png" alt="Tablets category" class="img-med-category" />
+        <h4>Tablets</h4>
+        <a href="" class="btn-more">More  <b>&#8680;</b></a>
+        @Html.ActionLink("More", "ShowMedicineInCategories", new { medCatID = 2, @class = "btn-more" })
+    </div>
+
+    <div class="col-md-4">
+        <img src="~/Content/Images/Lotion.jpg" alt="Lotions category " class="img-med-category" />
+        <h4>Lotions</h4>
+        <a href="" class="btn-more">More  <b>&#8680;</b></a>
+        @Html.ActionLink("More", "ShowMedicineInCategories", new { medCatID = 3, @class = "btn-more" })
+    </div>
+
+    <div class="col-md-4">
+        <img src="~/Content/Images/syrup.jpg" alt="Syrup category" class="img-med-category" />
+        <h4>Syrups</h4>
+        <a href="" class="btn-more">More  <b>&#8680;</b></a>
+        @Html.ActionLink("More", "ShowMedicineInCategories", new { medCatID = 1, @class = "btn-more" })
+    </div>
+
+</div>

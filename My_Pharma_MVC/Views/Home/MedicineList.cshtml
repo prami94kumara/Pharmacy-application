@@ -1,0 +1,65 @@
+﻿@model IEnumerable<My_Pharma_DB.Domain.Medicine>
+
+@{
+    ViewBag.Title = "MedicineList";
+}
+
+<h2>Items in the list</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateMedicine")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Medicine Name
+        </th>
+        <th>
+           Medicine Description
+        </th>
+        <th>
+           Medicine Quantity
+        </th>
+        <th>
+           Expiry Date
+        </th>
+        <th>
+            Medicine Image
+        </th>
+    </tr>
+
+@foreach (var medItem in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MedicineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MedicineDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MediQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MediExpiryDate)
+        </td>
+        <td>
+            @if (medItem.ImagePath == null)
+            {
+                @*<img src="@Url.Content(modelItem => medItem.ImagePath)" width="130" height="160" />*@
+                <asp:Image ImageUrl="@Model.Select(modelItem => modelItem.ImagePath)"/>
+            }
+            else
+            {
+                <img src="@Url.Content(medItem.ImagePath)" width="130" height="160" />
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMedicine", new { medID = medItem.MedicineID }) |
+            @*
+        @Html.ActionLink("Details", "Details", new { id=item.MedicineID }) |*@
+            @Html.ActionLink("Delete", "DeleteMedicine", new { medID = medItem.MedicineID })
+        </td>
+    </tr>
+}
+
+</table>

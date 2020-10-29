@@ -1,0 +1,47 @@
+﻿@model IEnumerable<My_Pharma_DB.Domain.Medicine>
+
+@{
+    ViewBag.Title = "Show Medicine In Categories";
+}
+
+<h2>ShowMedicineInCategories</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediExpiryDate)
+        </th>
+    </tr>
+
+@foreach (var medItem in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MedicineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MedicineDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MediQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medItem.MediExpiryDate)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { medID = medItem.MedicineID }) |
+            @Html.ActionLink("Details", "Details", new { medID = medItem.MedicineID }) |
+            @Html.ActionLink("Delete", "Delete", new { medID = medItem.MedicineID })
+        </td>*@
+    </tr>
+}
+
+</table>

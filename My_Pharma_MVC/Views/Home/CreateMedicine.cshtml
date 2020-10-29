@@ -1,0 +1,108 @@
+﻿@model My_Pharma_DB.Domain.Medicine
+
+@{
+    ViewBag.Title = "Add Medicine";
+}
+<br />
+<br />
+@using (Html.BeginForm("CreateMedicine", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Create Medicine</h4>
+        <hr />
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Medicine Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MedicineName, "mediName", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessage("MedicineName", "Please Enter a medicine name",)*@
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Medicine Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.DropDownListFor(model => model.MedicineCategoryID, Model.MedCategoryList, "Select Category", new { htmlAttributes = new { @class = "dropdown-list-med-cat" } })
+                @Html.ValidationMessageFor(model => model.MedicineCategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Medicine Description", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MedicineDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MedicineDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Quantity", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MediQty, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MediQty, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Expiry Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MediExpiryDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MediExpiryDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Upload Image", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @*@Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="file" name="ImageFile" required />
+                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "MedicineList")
+</div>
+
+<!-- -->
+@*<script>
+    //declaring function name here - and does not include any parameters 
+    function validateCreateMedicineForm() {
+
+        //check medicine name is given a value
+        //var medName = document.getElementById("mediName").value;
+
+        ////checks if medicine name is empty or input is available
+        //if (medName =="") {
+        //    alert("Please fill the medicine name");
+        //    return false;
+        //}
+
+        var medName = document.forms["CreateMedicine"]["MedicineName"].value;
+        if (medName == "") {
+            alert("Name must be filled out");
+            return false;
+        }
+
+        //var medName = document.forms["CreateMedicine"]["MedicineName"]
+
+    }
+
+</script>*@
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
